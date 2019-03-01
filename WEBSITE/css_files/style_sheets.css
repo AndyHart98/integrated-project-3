@@ -62,6 +62,7 @@ p{
     padding-right: 11px;
     padding-left: 11px;
     text-decoration: none;
+    transition: color 0.5s ease-in-out;
 }
 
 .topnav .icon {
@@ -69,8 +70,7 @@ p{
 }
 
 .topnav a:hover{
-    background-color: #615858;
-    color: white;
+    color: #A19B9B;
 }
 
 /*----------------------------------------------*/
@@ -131,4 +131,11 @@ img {
     width: 100%;
     height: auto;
     padding-bottom: 20px;
+}
+
+/*----------------Earthquake Page CSS--------------*/
+
+#maplayout {
+    height: 70%;
+    width: 70%; 
 }

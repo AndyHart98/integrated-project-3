@@ -2,6 +2,8 @@
 <link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM">
+</script>
 <script src="scripts/hamburgerMenu.js"></script>
     <head>
         <title>Earthquakes and Weather - Earthquakes</title>
@@ -21,8 +23,11 @@
     </div>
 </header>
     <body>
-    <div class="content">
-        
-    </div>
+    <!--<div class="content">-->
+        <button type="button" id="earthquakes">Click me</button>
+        <div id="error"></div>
+        <script src="scripts/googleMapsScript.js"></script>
+        <div id="mapLayout"></div>
+        <!--</div>-->
     </body>
 <html>
