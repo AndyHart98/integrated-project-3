@@ -206,3 +206,26 @@ img {
     position: absolute;
     width: 100%;
 }
+
+/*----------------Weather Page CSS--------------*/
+#rowDiv{
+	margin: auto;
+	text-align: center;
+	width: 100%;
+}
+
+input[type="text"]{
+	height: 40px;
+	font-size: 20px;
+}
+
+#submitWeather{
+	height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.weather_image{
+	height: auto;
+	width: auto;
+}
