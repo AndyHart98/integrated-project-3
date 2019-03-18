@@ -27,9 +27,10 @@ $(document).ready(function(){
 });
 
 function show(data){
-	return "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>" +
+	return "<img src='http://openweathermap.org/img/w/"+data.weather[0].icon+".png'> " +
+		   "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>" +
 		   "<h3><strong>Weather</strong>: "+ data.weather[0].main +"</h3>" +
-		   "<h3><strong>Description</strong>: <img src='http://openweathermap.org/img/w/"+data.weather[0].icon+".png'> " + data.weather[0].description + "</h3>" +
+		   "<h3><strong>Description</strong>: " + data.weather[0].description + "</h3>" +
 		   "<h3><strong>Temperature</strong>: "+data.main.temp + "&deg;C</h3>" +
 		   "<h3><strong>Pressure</strong>: "+data.main.pressure + "hPa</h3>" +
 		   "<h3><strong>Humidity</strong>: "+data.main.humidity + "%</h3>" +

@@ -10,7 +10,7 @@ h1 {
 html {
     font-family: "Calibri", sans-serif;
     font-weight: 100;
-    background-color: #D8D8D8;
+    background-color: #EEEEEE;
 }
 
 body{
@@ -228,4 +228,14 @@ input[type="text"]{
 .weather_image{
 	height: auto;
 	width: auto;
+}
+
+#error{
+	color: #bb0000;
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+}
 }
