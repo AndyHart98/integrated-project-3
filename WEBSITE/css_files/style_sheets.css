@@ -152,6 +152,19 @@ img.header {
   float: right;
 }
 
+.buttonsEQ{
+    float: left;
+    padding-left: 30px;
+}
+
+button{
+    border-radius: 12px;
+    border: 0px;
+    font-size: 15px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
 /*------Earthquake navigation bar(text is changed to black---------*/
 @media screen and (max-width: 600px) {
   .topnavEQ a:not(:first-child) {display: none;}

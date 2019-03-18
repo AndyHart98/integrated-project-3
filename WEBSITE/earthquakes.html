@@ -4,6 +4,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM">
 </script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+</script>
 <script src="scripts/hamburgerMenu.js"></script>
     <head>
         <title>Earthquakes and Weather - Earthquakes</title>
@@ -24,14 +26,21 @@
             </a>  
         </div>
     </div>
-    <img class="header" src="Images/version2eqpage.png" width="1920" height="100"/>
+    <img class="header" src="Images/earthquakeMaps.png" width="1920" height="100"/>
 </header>
     <body>
-    <div class="contentEQ">
-        <button type="button" id="earthquakes">Click me</button>
+    <div class="buttonsEQ">
+        <h2>Choose a time period</h2>
         <button type="button" id="hour">Past Hour</button>
-        <button type="button" id="all">All Earthquakes</button>
+        <br/>
+        <br/>
+        <button type="button" id="day">Past Day</button>
+        <br/>
+        <br/>
+        <button type="button" id="week">Past Week</button>
         <div id="error"></div>
+    </div>
+    <div class="contentEQ">
         <script src="scripts/googleMapsScript.js"></script>
         <div id="mapLayout"></div>
     </div>
