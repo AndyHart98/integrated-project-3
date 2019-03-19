@@ -1,13 +1,10 @@
 <html>
+<meta charset="utf-8">
 <link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="scripts/hamburgerMenu.js"></script>
-    
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-    
+        
 <script src="scripts/uv.js"></script>
 <head>
     <title>Earthquakes and Weather - UV Index</title>
@@ -33,18 +30,34 @@
     <body>
     <div class="content">
 	
+    <div class="row" style="margin-bottom:20px;">
+		<h3>Enter Location</h3>
+		<span id="error"></span>
+	</div>    
+        
+     	<div class="row form-group form-inline" id="rowDiv">
+		<input type="text" name="place" id="place" class="form-control" placeholder="Town/City">
+        		<input type="text" name="country" id="country" class="form-control" placeholder="Country">
+		<button id="submitCoords" class="btn btn-primary">Get Coordinates</button>
+		</div>   
+        <div id="show2"></div>
+    <br>
+        
+        
+        
+        
+        
+        
 	<div class="row" style="margin-bottom:20px;">
-		<h3>Enter Latitude and Longitude</h3>
 		<span id="error"></span>
 	</div>
 	
 	<div class="row form-group form-inline" id="rowDiv">
-		<input type="number" name="lat" id="lat" class="form-control" placeholder="Latitude">
-        		<input type="number" name="lon" id="lon" class="form-control" placeholder="Longitude">
+		<input type="number" step="0.0000001" name="lat" id="lat" class="form-control" placeholder="Latitude">
+        		<input type="number" step="0.0000001" name="lon" id="lon" class="form-control" placeholder="Longitude">
 		<button id="submitUV" class="btn btn-primary">Find Current UVI</button>
 		</div>
         
-        <br>
         <br>
         <br>
         

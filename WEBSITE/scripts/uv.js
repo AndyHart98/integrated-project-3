@@ -1,5 +1,49 @@
 $(document).ready(function(){
 	
+	$('#submitCoords').click(function(){
+	
+    var place = $("#place").val();
+	var country = $("#country").val();
+        
+	if(place !='' && country !=''){
+
+	$.ajax({
+		
+		url: 'https://api.opencagedata.com/geocode/v1/json?q=' + place + "+" + country + '%201DE&key=6eb49be0724d4e918acd96d7c4a7eb94',
+		type: "GET",
+		dataType: "json",
+		success: function(data2){
+			var widget = show2(data2);
+			
+			$("#show2").html(widget);
+            
+            $("#place").val('');
+            $("#country").val('');
+		}
+	});
+	
+	}else{
+		$("#error").html('Either field cannot be empty');
+	}
+	});
+});
+
+
+function show2(data2){
+     
+   
+    var lat = $("#lat").val(data2.results[0].geometry.lat);
+    var lon = $("#lon").val(data2.results[0].geometry.lng);
+    
+}
+
+
+
+
+
+
+$(document).ready(function(){
+	
 	$('#submitUV').click(function(){
 	
     var lat = $("#lat").val();
@@ -32,8 +76,6 @@ $(document).ready(function(){
 
 function show(data){
     
-return "<h3 text-align:center;><u><strong>Current UV Index of </strong>" + data.lat + "&deg;, " + data.lon + "&deg;</u></h3>" + "<h1>" + data.value + "</h1>"
+return "<h3 text-align:center;><u><strong>Current UV Index</strong></u></h3>" + "<h1>" + data.value + "</h1>"
 	
 }
-
-
