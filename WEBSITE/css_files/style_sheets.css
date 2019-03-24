@@ -7,6 +7,18 @@ h1 {
     margin-top: auto;
 }
 
+h2 {
+	float:left;
+	width: 50%;
+	display: inline-block;
+}
+
+h3{
+	float:left;
+	width: 50%;
+	display: inline-block;
+}
+
 html {
     font-family: "Calibri", sans-serif;
     font-weight: 100;
@@ -133,9 +145,11 @@ img.header {
 
 /*----------------Earthquake Page CSS--------------*/
 
-#maplayout {
+#mapLayout {
     height: 438px;
     width: 780px; 
+	float: left;
+	display: inline-block;
 }
 
 @media only screen and (max-width: 479px){
@@ -235,12 +249,12 @@ input[type="text"]{
 #submitWeather{
 	height: 40px;
 	font-size: 20px;
-	font-weight: bold;
 }
 
 .weather_image{
 	height: auto;
 	width: auto;
+	
 }
 
 #error{
@@ -249,11 +263,6 @@ input[type="text"]{
 }
 
 /*----------------UV Page CSS--------------*/
-
-h3{
-    text-align: center;
-    
-}
 
 input[type="number"]{
 	height: 40px;

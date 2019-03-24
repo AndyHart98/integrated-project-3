@@ -3,9 +3,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="css_files/owfont-regular.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
 <script src="scripts/hamburgerMenu.js"></script>
     <head>
-        <title>Earthquakes and Weather - Weather</title>
+        <title>Weather Forecast</title>
     </head>
     <header>
     <div class="test">
@@ -31,15 +35,24 @@
 		<h1 class="text-center text-primary">Enter City Name</h1>
 	</div>
 	
+	<div id="error"></div>
+	
 	<div class="row form-group form-inline" id="rowDiv">
 		<input type="text" name="city" id="city" class="form-control" placeholder="City Name">
 		<button id="submitWeather" class="btn btn-primary">Search</button>
 		</div>
 		
-		<div id="error"></div>
-		<div id="show"></div>
+		<?php
+		$json_string = 'http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139';
+		$jsondata = file_get_contents($json_string);
+		$obj = json_decode($jsondata, true);
+		?>
+		<i class="owf owf-<?php echo $obj['weather'][0]['id'];?>"></i>
 		
-		<div class="weather_image">
+		<div id="show"></div>
+		<div id="mapLayout"></div>
+		
+	<div class="weather_image">
 	<script src="scripts/weather.js"></script>
 	</div>
 	
