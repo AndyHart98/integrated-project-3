@@ -1,0 +1,60 @@
+<html>
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="css_files/owfont-regular.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
+<script src="scripts/hamburgerMenu.js"></script>
+    <head>
+        <title>Weather Forecast</title>
+    </head>
+    <header>
+    <div class="test">
+        <div class="topnavEQ" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="">Floods</a>
+            <a href="">Plane Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+	<img class="header" src="Images/weatherForcast2.png"/>
+</header>
+
+    <body>
+	<div class="row" style="margin-bottom:20px;">
+		<h1 class="text-center text-primary">Enter City Name</h1>
+	</div>
+	
+	<div id="error"></div>
+	
+	<div class="row form-group form-inline" id="rowDiv">
+		<input type="text" name="city" id="city" class="form-control" placeholder="City Name">
+		<button id="submitWeather" class="btn btn-primary">Search</button>
+		</div>
+		
+		<?php
+		$json_string = 'http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139';
+		$jsondata = file_get_contents($json_string);
+		$obj = json_decode($jsondata, true);
+		?>
+		<i class="owf owf-<?php echo $obj['weather'][0]['id'];?>"></i>
+		
+		<div id="show"></div>
+		<div id="mapLayout"></div>
+		
+	<div class="weather_image">
+	<script src="scripts/weather.js"></script>
+	</div>
+	
+    </body>
+</html>
