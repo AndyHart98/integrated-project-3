@@ -32,26 +32,10 @@ $(document).ready(function(){
 function show2(data2){
      
    
-    var lat = $("#lat").val(data2.results[0].geometry.lat);
-    var lon = $("#lon").val(data2.results[0].geometry.lng);
+    var lat = data2.results[0].geometry.lat;
+    var lon = data2.results[0].geometry.lng;
     
-}
-
-
-
-
-
-
-$(document).ready(function(){
-	
-	$('#submitUV').click(function(){
-	
-    var lat = $("#lat").val();
-	var lon = $("#lon").val();
-        
-	if(lat !='' && lon !=''){
-
-	$.ajax({
+    	$.ajax({
 		
 		url: 'http://api.openweathermap.org/data/2.5/uvi?appid=2730b5f7f1b2a5c8426a822aca53fed1&lat=' + lat + '&lon=' + lon,
 		type: "GET",
@@ -60,17 +44,14 @@ $(document).ready(function(){
 			var widget = show(data);
 			
 			$("#show").html(widget);
-            
-            $("#lat").val('');
-            $("#lon").val('');
-		}
-	});
-	
-	}else{
-		$("#error").html('Either field cannot be empty');
-	}
-	});
-});
+    
+}
+        
+
+        });
+}
+               
+
 
 
 
@@ -88,36 +69,14 @@ $(document).ready(function(){
 	
 	$('#submitUVF').click(function(){
 	
-    var lat = $("#lat").val();
-	var lon = $("#lon").val();
-        
-	if(lat !='' && lon !=''){
 
-	$.ajax({
-		
-		url: 'http://api.openweathermap.org/data/2.5/uvi/forecast?appid=2730b5f7f1b2a5c8426a822aca53fed1&lat=' + lat + '&lon=' + lon + '&cnt=6',
-		type: "GET",
-		dataType: "json",
-		success: function(data3){
-			var widget = show3(data3);
-			
-			$("#show").html(widget);
-            
-            $("#lat").val('');
-            $("#lon").val('');
-		}
-	});
-	
-	}else{
-		$("#error").html('Either field cannot be empty');
-	}
-	});
+});
 });
 
 
 
-function show3(data3){
+function show3(forecastdata){
     
-console.log(data3);
+console.log(forecastdata);
 	
 }
