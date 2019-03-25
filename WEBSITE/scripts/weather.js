@@ -41,7 +41,7 @@ $(document).ready(function(){
 			var myLatLng = {lat: data.coord.lat, lng: data.coord.lon};
 	
 	map = new google.maps.Map(document.getElementById('mapLayout'), {
-                zoom: 4,
+                zoom: 5,
                 center: myLatLng,
                 mapTypeId: 'terrain'
             });
@@ -73,8 +73,7 @@ $(document).ready(function(){
 });
 
 function show(data){
-	return "<h2><img src='http://openweathermap.org/img/w/"+data.weather[0].icon+".png'></h2>" +
-		   "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>" +
+	return "<h2>Current Weather for " + data.name + ", " + data.sys.country + "</h2>" + "<h2><img src='http://openweathermap.org/img/w/"+data.weather[0].icon+".png'></h2>" +
 		   "<h3><strong>Weather: "+ data.weather[0].main +"</h3>" +
 		   "<h3>Description: " + data.weather[0].description.charAt(0).toUpperCase() +  data.weather[0].description.slice(1) + "</h3>" +
 		   "<h3>Temperature: "+data.main.temp + "&deg;C</h3>" +
