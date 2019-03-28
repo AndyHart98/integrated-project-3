@@ -274,6 +274,11 @@ input[type="number"]{
 	font-size: 20px;
 }
 
+canvas{
+    height:35px;
+    width: 30px;
+}
+
 /*----------------Authors Page CSS--------------*/
 .author_header img{
   border-radius: 50%;

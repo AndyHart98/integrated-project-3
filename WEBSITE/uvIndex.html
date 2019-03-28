@@ -4,10 +4,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="scripts/hamburgerMenu.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
         
-<script src="scripts/uvindex.js"></script>
+<script src="scripts/uv.js"></script>
 <head>
-    <title>UV Index</title>
+    <title>Earthquakes and Weather - UV Index</title>
 </head>
 <header>
     <div class="test">
@@ -43,9 +45,11 @@
 		<button id="submitCoords" class="btn btn-primary">Get Current UVI</button>
         <button id="submitUVF" class="btn btn-primary">7-Day Forecast UVI</button>
 		</div>   
-		<br>
+    <br>
+
+        
         <br>
-        <br>
+        
         
         <div id="show2"></div>
         
@@ -53,9 +57,18 @@
         
         <div id="show3"></div>
         
+        <div id="show4"></div>
         
+        <canvas id="myChart"></canvas>
+    
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 		
         </div>
     </body>
-</html>
+<html>
 
