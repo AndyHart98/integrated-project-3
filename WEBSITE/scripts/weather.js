@@ -14,14 +14,13 @@ var map;
         });
     }
 
-    var thelocation;
-    var titleName;
-
 $(document).ready(function(){
 	
 	$('#submitWeather').click(function(){
 		
 	var city = $("#city").val();
+	var latitude = $("#latitude").val();
+	var longitude = $("#longitude").val();
 	
 	if(city !=''){
 
@@ -41,7 +40,7 @@ $(document).ready(function(){
 			var myLatLng = {lat: data.coord.lat, lng: data.coord.lon};
 	
 	map = new google.maps.Map(document.getElementById('mapLayout'), {
-                zoom: 5,
+                zoom: 6,
                 center: myLatLng,
                 mapTypeId: 'terrain'
             });
@@ -60,14 +59,60 @@ $(document).ready(function(){
         });
 
         marker.addListener('click', function() {
-          map.setZoom(8);
+          map.setZoom(10);
+          map.setCenter(marker.getPosition());
+        });
+      }
+	});
+	
+	}
+	
+	else if(latitude !='' && longitude !=''){
+
+	$.ajax({
+		
+		url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + "&lon=" + longitude + "&APPID=0d5adfc3ac326556c4021c8e60b3345e",
+		type: "GET",
+		dataType: "json",
+		
+		success: function(data){
+			var widget = show(data);
+					
+			$("#show").html(widget);
+			
+			$("#latitude").val('');
+			$("#longitude").val('');
+			
+			var myLatLng = {lat: data.coord.lat, lng: data.coord.lon};
+	
+	map = new google.maps.Map(document.getElementById('mapLayout'), {
+                zoom: 6,
+                center: myLatLng,
+                mapTypeId: 'terrain'
+            });
+			
+		var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: data.name
+        });
+		map.addListener('center_changed', function() {
+          // 3 seconds after the center of the map has changed, pan back to the
+          // marker.
+          window.setTimeout(function() {
+            map.panTo(marker.getPosition());
+          }, 3000);
+        });
+
+        marker.addListener('click', function() {
+          map.setZoom(10);
           map.setCenter(marker.getPosition());
         });
       }
 	});
 	
 	}else{
-		$("#error").html('Field cannot be empty');
+		$("#error").html('Field(s) cannot be empty. Please enter a city or latitude and longitude co-ordinates.');
 	}
 	});
 });

@@ -256,21 +256,29 @@ input[type="text"]{
 	text-align: center;
 }
 
+.infoWeather{
+    padding-left: 300px;
+	float: left;
+}
+
 .contentWeather{
   padding-top: 20px;
   padding-right: 20px;
   max-width: 800px;
   margin: auto;
-  float: right;
 }
 
-.infoWeather{
-    float: left;
-    padding-left: 150px;
-}
 /*----------------UV Page CSS--------------*/
-
 input[type="number"]{
 	height: 40px;
 	font-size: 20px;
 }
+
+/*----------------Authors Page CSS--------------*/
+.author_header img{
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
+
