@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <script src="scripts/hamburgerMenu.js"></script>
     <head>
         <title>Earthquake Maps</title>
@@ -29,18 +30,18 @@
     <div class="buttonsEQ">
         <h2>Choose a time period</h2>
         <button type="button" id="hour">Past Hour</button>
-        <br/>
-        <br/>
+        <button type="button" id="hourSig">Past Hour Significant</button>
+        
         <button type="button" id="day">Past Day</button>
-        <br/>
-        <br/>
-        <button type="button" id="week">Past Week</button>
+        <button type="button" id="daySig">Past Day Significant</button>
+        
+        <button type="button" id="week">Past Week M4.5+</button>
+        <button type="button" id="weekSig">Past Week Significant</button>
         <div id="error"></div>
+    
+        <br/>
     </div>
-    <div class="contentEQ">
-        <script src="scripts/googleMapsScript.js"></script>
-        <div id="mapLayout"></div>
-    </div>
-	
+    <script src="scripts/googleMapsScript.js"></script>
+    <div id="mapLayout"></div>
     </body>
 </html>

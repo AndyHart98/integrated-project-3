@@ -59,7 +59,7 @@ p{
   }
   .topnav.responsive{
     background-color: #463E3E;
-  }
+  }   
 }
 
 .topnav a{
@@ -143,26 +143,27 @@ img.header {
 
 #mapLayout {
     height: 438px;
-    width: 780px; 
+    width: 100%;
+    max-width: 85%;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+    margin:auto;
 }
 
-@media only screen and (max-width: 479px){
-    #mapLayout { width: 70%; 
-        height: 50%; 
+@media only screen and (max-width: 600px){
+    .buttonsEQ { 
+        max-width: 100%;
+        margin: auto;  
     }
 }
 
-.contentEQ{
-  padding-top: 20px;
-  padding-right: 20px;
-  max-width: 800px;
-  margin: auto;
-  float: right;
-}
-
 .buttonsEQ{
-    float: left;
+    align-content: center;
     padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    width: 68%;
 }
 
 button{
@@ -171,6 +172,8 @@ button{
     font-size: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /*------Earthquake navigation bar(text is changed to black---------*/
