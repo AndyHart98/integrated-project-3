@@ -1,0 +1,52 @@
+<html>
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
+
+<script src="scripts/hamburgerMenu.js"></script>
+    <head>
+        <title>Weather Tutorial</title>
+    </head>
+    <header>
+    <div class="test">
+        <div class="topnavEQ" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="">Floods</a>
+            <a href="">Plane Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+	<img class="header" src="Images/weatherForcast.png"/>
+</header>
+
+    <body>
+	<h2>Weather Data Tutorial</h2>
+	<p>In order to retrieve weather data, the use of an external API must be used to pull current weather information.</p>
+	<p>OpenWeatherMap was chosen as the API of choice for this project due to the large amount of documentation available.</p>
+	<p>When calling the OpenWeatherMap API, it returns the following data in GeoJSON format:</p>
+	<img class="header" src="Images/weather_1.png" width="1920" height="100"/>
+	The aim of this webpage is to allow users to enter either a city name or latitude and longitude co-ordinates as a means of specifying the location for the current weather forecast.
+	In order to do this, an if statement is used to determine that the search fields are populated with the required data for each search option.
+	
+	City
+	
+	Latitude and Longitude
+	
+	Error statement if fields are empty
+	
+	In order to pull data from the API, the required URL is concatenating with the fields which are inputting by the user. The URL differs for each search type.	
+	Key information is pulled from each array in the API return. For the purpose of this project we have chosen fields such as temperature, pressure, humidity and wind speed.
+	The appropriate unit of measurement must also be concatenated onto the end of each return. First of all, the OpenWeatherMap documentation must be used to find out the unit which is returned by the API. Then simple HTML is used to add the appropriate symbol onto the data.
+	A key differentiatior of weather data from other datasets is the visualiasation of weather conditions through the use of icons. Due to time constraints the built in OpenWeatherMap icons were used. This is done simply through concatenating the image link from the API with the use of weather codes returned from the API call.
+    This page uses a Google Map to plot a marker at the location of the place which is inputted by the user. Therefore, the latitude and longitude which is returns by the API call, must be used when plotting the marker on the Google Map. This is done as follows:
+	Finally, the zoom function is added to the marker by adding a listener for when the user clicks on the marker. This is useful as it allows the user to quickly zoom in to the map to ensure they typed in the correct city, and also view nearby city names which might be of interest to them. 
+	</body>
+</html>
