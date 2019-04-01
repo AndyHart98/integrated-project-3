@@ -287,6 +287,21 @@ canvas{
   border-radius: 50%;
   height: 200px;
   width: 200px;
-  display: inline-block;
+  display: inline-block;    
 }
 
+.authorCentre{
+    align-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    width: 68%;
+
+}
+
+.centre{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}

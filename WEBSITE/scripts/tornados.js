@@ -23,6 +23,7 @@ $(document).ready(function() {
 		};
 		paragraph += "</ul>"
 		$("#tornados").append(paragraph);
+        
 	},
 	error: function(error){console.log(error)}
 	});
