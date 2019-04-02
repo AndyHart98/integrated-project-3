@@ -1,0 +1,110 @@
+<html>
+<meta charset="utf-8">
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/hamburgerMenu.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        
+<script src="scripts/uv.js"></script>
+<head>
+    <title>UVI Data Tutorial</title>
+</head>
+<header>
+    <div class="test">
+        <div class="topnavEQ" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="Flood.html">Floods</a>
+            <a href="flights.html">Plane Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+                                
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>     
+        </div>
+         </div>         
+
+	<img class="header" src="Images/uvheader.png"/>
+</header>
+    <body>
+    <div class="content">
+    <h2>UV Index Data Tutorial</h2>
+        
+    <br>
+    <br>
+        
+    First, the user must enter the name of a town or city and its country.
+        
+    <br>
+    <br>
+        
+    Should the user decide to get the current UV Index (recorded at midday local time), the website converts the location input to its corresponding coordinates i.e. latitude(lat) and longitude(long).
+        
+    <br>
+    <br>
+        
+    This is done by using a geolocation API that uses keywords (the user's input) and pulls the relevant data.
+        
+    <br>
+    <br>
+        
+    Next, the website uses another API from OpenWeatherMap, and searches for the current UV Index by the coordinates it had converted from the place name. 
+        
+    <br>
+    <br>
+        
+    The use of 2 API's here is essential, because the UV Index(UVI) API is only able to make requests using latitude and longitude, and users do not know precise coordinates of locations from memory, so there has to be a convertion to lat and long before UVI request is made. 
+        
+    <br>
+    <br>
+    
+    
+    When a request is made, it returns the following data in JSON format:
+        
+    <br>
+        
+    <img class="header" src="Images/UV_JSON.png" width="1920" height="100"/>
+        
+    <br>
+        
+    To show the current UVI reading, it simply returns the "value" field. 
+        
+    <br>
+    <br>
+
+    Should the user decide to get a 7-Day UVI Forecast, they enter a location as before and it is converted to lat and long. Using a slightly different request call to OpenWeatherMap, the website adds the lat and long to the request URL, but this time states how many days returned. To return a weeks forecast, this value should be 6, as data from Day 1 is stored in position 0, so adding '&cnt=6' to the URL means days 0-6, which is 7 in total (i.e. number of days in a week).
+        
+    <br>
+    <br>
+        
+    It returns in the same JSON format, except now there is data for 7 days and not just one day as before. The website then pushes the "value" field of each day on to an array.
+        
+    <br>
+    <br>
+        
+    To display the UVI forecast values, it feeds the array data into a Chart.js bar graph, and plots the UVI values from the array against each of the 7 days ahead. Chart.js also allows you to enable a responsivness option, where resizing the web page automatically ajusts the graph to fit.
+        
+    <br>
+    <br>
+        
+    Below is an example of the grahical output:
+        
+    <br>
+    <br>
+    
+     <img class="header" src="Images/UV_Graph.png" width="1920" height="100"/>   
+        
+        
+        
+        
+        <br>
+        <br>
+		
+        </div>    
+    </body>
+<html>
