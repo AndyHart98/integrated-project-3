@@ -1,7 +1,10 @@
+
 var map;
-        // window.location.href;
+        
+		// window.location.href;
         //var theurl = window.location.toString();
         //initMap() called when Google Maps API code is loaded - when web page is opened/refreshed 
+		
         function initMap() {
             map = new google.maps.Map(document.getElementById('mapLayout'), {
                 zoom: 2,
@@ -10,7 +13,11 @@ var map;
 				icon: {url: 'plane.png', scaledSize: new google.maps.Size(25, 25)},
 				mapTypeId: 'terrain' // can be any valid type
             });
-            google.maps.event.trigger(map, 'resize');
+			google.maps.event.addDomListener(window, "resize", function() {
+				var center = map.getCenter();
+				google.maps.event.trigger(map, "resize");
+				map.setCenter(center); 
+				});
         }
 
 
@@ -37,33 +44,43 @@ var map;
             },
 			
 			success: function(data) {
-				 
+
 				$.each(data, function(index, val) {
 				
                 for (var i = 1; i <= 10; i++){
+					createMarker(i);
+									 
                     var coords1 = data[i].geography.latitude;
-                    var coords2 = data[i].geography.longitude;    
-                    console.log(coords1, coords2);
+                    var coords2 = data[i].geography.longitude;  
+					var coords3 = data[i].geography.direction; 
+                    console.log(coords1, coords2, coords3);
                 
                 var myLatLng = new google.maps.LatLng(coords1, coords2);
-                //var coords = val.geometry.coordinates;
-				//lat = coords[1]; // geojson uses (lng, lat) ordering so lat stored at coords[1]
-                //lng = coords[0]; // lng stored at coords[0]
-                
-				//var myLatLng = new google.maps.LatLng(data.geography.latitude, data.geography.longitude);
+				//var myDegree = new google.maps.Point(coords3);
+				
+                function createMarker(i) {
+					
 				var marker = new google.maps.Marker({
 						position: myLatLng,
+						//rotation: myDegree,
 						map: map,
-						title: "hello",
 						icon: "images/plane.png",
 					});
-                }
-				the_href = val.properties.url + "\'" + ' target=\'_blank\'';
+	
                             var infowindow = new google.maps.InfoWindow({
-                                content: "We access some external data (in this case it is weather) when we click on a marker. We update the page with the weather information. This method is useful for any data API that can be searched using a lat,lon coordinate."
+                                content: "<h3> Altitude: " + val.geography.altitude + " ft<h3>"
                             });	
-                
-				 });  	 
+							
+							marker.addListener('click', function (data) {
+								infowindow.open(map, marker);
+							});
+				}
+				
+				}
+				
+				
+   
+				});  	 
 			}
           });
         });	
