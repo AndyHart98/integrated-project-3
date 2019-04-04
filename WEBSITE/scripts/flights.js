@@ -68,7 +68,7 @@ var map;
 					});
 	
                             var infowindow = new google.maps.InfoWindow({
-                                content: "<h3> Altitude: " + val.geography.altitude + " ft<h3>"
+                                content: "<h4>Altitude: " + data[i].geography.altitude + " ft </h4><h4>Departure: " + data[i].departure.iataCode + "</h4> <h4>Arrival: " + data[i].arrival.iataCode + "</h4>"
                             });	
 							
 							marker.addListener('click', function (data) {
