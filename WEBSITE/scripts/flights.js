@@ -47,7 +47,7 @@ var map;
 
 				$.each(data, function(index, val) {
 				
-                for (var i = 1; i <= 10; i++){
+                for (var i = 0; i <= 9; i++){
 					createMarker(i);
 									 
                     var coords1 = data[i].geography.latitude;

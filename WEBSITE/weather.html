@@ -1,5 +1,6 @@
 <html>
 <link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
@@ -10,7 +11,7 @@
     </head>
     <header>
     <div class="test">
-        <div class="topnav" id="myTopnav">
+        <div class="topnavEQ" id="myTopnav">
             <a href="index.html">Home</a>
             <a href="earthquakes.html">Earthquakes</a> 
             <a href="weather.html">Weather</a>
@@ -24,8 +25,9 @@
             </a>  
         </div>
     </div>
-	<img class="header" src="Images/weatherForcast.png"/>
 </header>
+<br>
+<br>
 
     <body>
 	<div class="row" style="margin-bottom:20px;">
@@ -43,7 +45,7 @@
 	<br>
 		<div id="show" class="infoWeather"></div>
 		
-		<div id="mapLayout" class="contentWeather"></div>
+		<div id="weatherMap" class="contentWeather"></div>
 		
 	<div class="weather_image">
 	<script src="scripts/weather.js"></script>

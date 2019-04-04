@@ -1,9 +1,7 @@
 var map;
 
     function initMap() {
-        map = new
-        google.maps.Map(document.getElementById('mapLayout'),
-            {
+        map = new google.maps.Map(document.getElementById('mapLayout'), {
             zoom: 2,
             center: new google.maps.LatLng(2.8, -187.3),
             mapTypeId: 'terrain'
@@ -12,9 +10,10 @@ var map;
 
     var thelocation;
     var titleName;
-    $(document).ready(function () {
+	
+    $(document).ready(function(){
 
-        $('#day').click(function () {
+        $('#day').click(function(){
             map = new google.maps.Map(document.getElementById('mapLayout'), {
                 zoom: 2,
                 center: new google.maps.LatLng(2.8, -187.3),

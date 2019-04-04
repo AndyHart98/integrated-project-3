@@ -6,7 +6,7 @@ var map;
 
     function initMap() {
         map = new
-        google.maps.Map(document.getElementById('mapLayout'),
+        google.maps.Map(document.getElementById('weatherMap'),
             {
             zoom: 2,
             center: new google.maps.LatLng(32.4084873,16.1851318),
@@ -39,7 +39,7 @@ $(document).ready(function(){
 			
 			var myLatLng = {lat: data.coord.lat, lng: data.coord.lon};
 	
-	map = new google.maps.Map(document.getElementById('mapLayout'), {
+	map = new google.maps.Map(document.getElementById('weatherMap'), {
                 zoom: 6,
                 center: myLatLng,
                 mapTypeId: 'terrain'
@@ -85,7 +85,7 @@ $(document).ready(function(){
 			
 			var myLatLng = {lat: data.coord.lat, lng: data.coord.lon};
 	
-	map = new google.maps.Map(document.getElementById('mapLayout'), {
+	map = new google.maps.Map(document.getElementById('weatherMap'), {
                 zoom: 6,
                 center: myLatLng,
                 mapTypeId: 'terrain'

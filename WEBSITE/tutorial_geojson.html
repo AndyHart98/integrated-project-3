@@ -10,7 +10,7 @@
     </head>
     <header>
     <div class="test">
-        <div class="topnavBlack" id="myTopnav">
+        <div class="topnavEQ" id="myTopnav">
             <a href="index.html">Home</a>
             <a href="earthquakes.html">Earthquakes</a> 
             <a href="weather.html">Weather</a>
@@ -28,8 +28,131 @@
 </header>
 
     <body>
+	<div class="content">
 	<h2>GeoJSON Tutorial</h2>
-	<p> 
+
+<p>
+ According to the GeoJSON Specification (RFC 7946):
+<br>
+<br>
+   "GeoJSON is a format for encoding a variety of geographic data
+   structures using JavaScript Object Notation (JSON) [RFC7159].  A
+   GeoJSON object may represent a region of space (a Geometry), a
+   spatially bounded entity (a Feature), or a list of Features (a
+   FeatureCollection).  GeoJSON supports the following geometry types:
+   Point, LineString, Polygon, MultiPoint, MultiLineString,
+   MultiPolygon, and GeometryCollection.  Features in GeoJSON contain a
+   Geometry object and additional properties, and a FeatureCollection
+   contains a list of Features".
+<br>
+<br>
+   "The format is concerned with geographic data in the broadest sense;
+   anything with qualities that are bounded in geographical space might
+   be a Feature whether or not it is a physical structure".
+<br>
+<br>
+   "GeoJSON comprises the seven concrete geometry types defined in the
+   OpenGIS Simple Features Implementation Specification for SQL [SFSQL]:
+   0-dimensional Point and MultiPoint; 1-dimensional curve LineString
+   and MultiLineString; 2-dimensional surface Polygon and MultiPolygon;
+   and the heterogeneous GeometryCollection".
+<br>
+<br>
+   "GeoJSON also comprises the types Feature and FeatureCollection.
+   Feature objects in GeoJSON contain a Geometry object with one of the
+   above geometry types and additional members.  A FeatureCollection
+   object contains an array of Feature objects".
+<br>
+<br>
+   "Since its initial publication in 2008 [GJ2008], the GeoJSON format
+   specification has steadily grown in popularity.  It is widely used in
+   JavaScript web-mapping libraries, JSON-based document databases, and
+   web APIs".
+<br>
+<br>
+   Example of a simple GeoJSON feature:
+</p>
+	
+	<div class="codeTutorial">
+	<pre>
+		<code>
+	var geojsonFeature = {
+    "type": "Feature",
+    "properties": {
+        "name": "Glasgow Caledonian University",
+        "amenity": "University",
+        "popupContent": "This is where we study!"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [55.8668213, -4.2521489]
+		}
+	};
+		</code>
+	</pre>
+	</div>
+	
+	<p>Example of a GeoJSON FeatureCollection:</p>
+	
+	<div class="codeTutorial">
+	<pre>
+		<code>
+	 {
+       "type": "FeatureCollection",
+       "features": [{
+           "type": "Feature",
+           "geometry": {
+               "type": "Point",
+               "coordinates": [102.0, 0.5]
+           },
+           "properties": {
+               "prop0": "value0"
+           }
+       }, {
+           "type": "Feature",
+           "geometry": {
+               "type": "LineString",
+               "coordinates": [
+                   [102.0, 0.0],
+                   [103.0, 1.0],
+                   [104.0, 0.0],
+                   [105.0, 1.0]
+               ]
+           },
+           "properties": {
+               "prop0": "value0",
+               "prop1": 0.0
+           }
+       }, {
+           "type": "Feature",
+           "geometry": {
+               "type": "Polygon",
+               "coordinates": [
+                   [
+                       [100.0, 0.0],
+                       [101.0, 0.0],
+                       [101.0, 1.0],
+                       [100.0, 1.0],
+                       [100.0, 0.0]
+                   ]
+               ]
+           },
+           "properties": {
+               "prop0": "value0",
+               "prop1": {
+                   "this": "that"
+               }
+           }
+       }]
+   }
+		</code>
+	</pre>
+	</div>
+	
+	<p>
+    Click <a href="https://tools.ietf.org/html/rfc7946">here</a> to view RFC7946, the official standard specification for GeoJSON format.
 	</p>
+
+	</div>
 	</body>
 </html>
