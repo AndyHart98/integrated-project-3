@@ -53,7 +53,7 @@ p{
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
+  .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
@@ -61,16 +61,37 @@ p{
   }
     
   .topnav{
-    text-align: left;
+    background-color: black;
+    overflow: hidden;
+    padding: 11px;
+    
   }
+    
+    .topnav a{
+    float: left;
+    color: white;
+    display: block;
+    padding-top: 11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+    
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
   .topnav.responsive{
-    background-color: #463E3E;
+    background-color: black;
   }   
+}
+
+.topnav{
+    padding: 11px;
+    background-color: darkslategrey;
+    width: 100%;
 }
 
 .topnav a{
@@ -90,9 +111,6 @@ p{
 	text-shadow: 3px 3px 3px #A19B9B;
 	transition: 0.2s;
 }
-
-
-
 
 /*----------------------------------------------*/
 
@@ -141,12 +159,7 @@ p{
   .col-12 {width: 100%;}
 }
 
-.topnav{
-    padding: 11px;
-    color:white;
-    position: absolute;
-    width: 100%;
-}
+
 
 img.header {
     width: 100%;
@@ -204,7 +217,7 @@ button:hover{
 	transition: 0.4s;
 }
 
-/*------Earthquake navigation bar(text is changed to black---------*/
+/*------Black Text Nav Bar---------*/
 @media screen and (max-width: 600px) {
   .topnavEQ a:not(:first-child) {display: none;}
   .topnavEQ a.icon {
@@ -235,7 +248,7 @@ button:hover{
   }
 }
 
-.topnavEQ a{
+.topnavBlack a{
     color: black;
     padding-top: 11px;
     padding-right: 11px;
@@ -244,17 +257,74 @@ button:hover{
     transition: color 0.5s ease-in-out;
 }
 
-.topnavEQ .icon {
+.topnavBlack .icon {
     display: none;
 }
 
-.topnavEQ a:hover{
+.topnavBlack a:hover{
     color: white;
 	text-shadow: 1px 1px 3px black;
 	transition: 0.2s;
 }
 
-.topnavEQ{
+.topnavBlack{
+    padding: 11px;
+    color:black;
+    position: absolute;
+    width: 100%;
+}
+
+/*------White Text Nav Bar---------*/
+@media screen and (max-width: 600px) {
+  .topnavEQ a:not(:first-child) {display: none;}
+  .topnavEQ a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnavEQ.responsive {position: relative;}
+  .topnavEQ.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+  }
+    
+  .topnavEQ{
+    text-align: left;    
+  }
+  .topnavEQ.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnavEQ.responsive{
+    background-color: #463E3E;
+  }
+}
+
+.topnavWhite a{
+    color: black;
+    padding-top: 11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+
+.topnavWhite .icon {
+    display: none;
+}
+
+.topnavWhite a:hover{
+    color: white;
+	text-shadow: 1px 1px 3px black;
+	transition: 0.2s;
+}
+
+.topnavWhite{
     padding: 11px;
     color:black;
     position: absolute;
