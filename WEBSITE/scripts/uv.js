@@ -54,7 +54,7 @@ function show2(data2){
 
 function show(data){
     
-return "<h3 text-align:center;><u><strong>Current UV Index</strong></u></h3>" + "<h1>" + data.value + "</h1><br><br>"
+return "<h3 text-align:center;><u><strong>Current UV Index</strong></u></h3>" + "<h2>" + data.value + "</h2><br><br>"
 	
 }
 
