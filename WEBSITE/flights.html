@@ -7,7 +7,6 @@
 <link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="flights.js"></script>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOk3ehzSry341HZu-V8jWqhT4bQuPyk9U&callback=initMap">
 </script>
@@ -19,12 +18,12 @@
 </head>
 
 <div class="test">
-        <div class="topnavEQ" id="myTopnav">
+        <div class="topnav" id="myTopnav">
             <a href="index.html">Home</a>
             <a href="earthquakes.html">Earthquakes</a> 
             <a href="weather.html">Weather</a>
             <a href="uvIndex.html">UV Index</a>
-            <a href="">Floods</a>
+            <a href="Flood.html">Floods</a>
             <a href="flights.html">Plane Tracker</a>
             <a href="tornados.html">Tornados</a>
             <a href="authors.html">Authors</a>
@@ -33,19 +32,20 @@
             </a>
     </div>
 </div>
-<img class="header" src="Images/planeheader.png"/>
+<br>
+<br>
 
+<div class="content">
+    <body>
 
-<body>
+        <button id="flightsLHR" class="btn btn-primary">Flights Arriving at Heathrow</button>
+        <button id="flightsGLA" class="btn btn-primary">Flights Arriving at Glasgow</button>
 
-    <button id="flights" class="btn btn-primary">View Flights</button>
+        <div id="mapLayout"></div>
 
-    <div id="mapLayout"></div>
+        <script src="scripts/flights.js"></script>
+        
+    </body>
+</div>
 
-
-    <section id="content">
-    </section>
-
-    <script src="scripts/flights.js"></script>
-</body>
 </html>
