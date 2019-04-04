@@ -3,19 +3,23 @@
 }
 
 h1 {
+	font-family: Consolas;
     text-align: center;
     margin-top: auto;
 }
 
 h2 {
+	font-family: Consolas;
 	text-align: center;
 }
 
 h3{
+	font-family: Consolas;
 	text-align: center;
 }
 
 h4{
+	font-family: Consolas;
 	text-align: center;
 }
 
@@ -83,7 +87,8 @@ p{
 }
 
 .topnav a:hover{
-    color: #A19B9B;
+	text-shadow: 3px 3px 3px #A19B9B;
+	transition: 0.2s;
 }
 
 
@@ -177,13 +182,26 @@ img.header {
 }
 
 button{
-    border-radius: 12px;
-    border: 0px;
+    border-radius: 2px;
+    border: 1px solid #323438;
     font-size: 15px;
     padding-bottom: 10px;
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+button:hover{
+	border-radius: 5px;
+    border: 2px solid #black;
+    font-size: 15px;
+	color: white;
+	background-color: #323438;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+	transition: 0.4s;
 }
 
 /*------Earthquake navigation bar(text is changed to black---------*/
@@ -231,7 +249,9 @@ button{
 }
 
 .topnavEQ a:hover{
-    color: #A19595;
+    color: white;
+	text-shadow: 1px 1px 3px black;
+	transition: 0.2s;
 }
 
 .topnavEQ{
