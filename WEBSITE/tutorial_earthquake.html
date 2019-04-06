@@ -1,3 +1,5 @@
+<!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
 <link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -10,7 +12,7 @@
     </head>
     <header>
     <div class="test">
-        <div class="topnavEQ" id="myTopnav">
+        <div class="topnavBlack" id="myTopnav">
             <a href="index.html">Home</a>
             <a href="earthquakes.html">Earthquakes</a> 
             <a href="weather.html">Weather</a>
@@ -37,19 +39,63 @@
     <p>Below is an example of data about an Earthquake, returned in a JSON format by the API.
         
     <br>
-    <img class="header" src="Images/Earthquaketutorialpic.png" width="1920" height="100">
         
-    <br>
-    <br>
-    Earthquakes can be form in lots of different ways, one common way an earthquake uses to take form is through seismic activity. For example when the tectonic plates move it can create lots of high energy and this is what makes the ground shake. It's also a reason why earthquakes are more common in regions close to the edge of the tectonic plates. The severity of an earthquake is indicated by it's Magnitude rating, which comes from the Richter Scale. Earthquakes are rated from 0 to 10, with earthquakes below a rating of 5 being more common and earthquakes above 5 tend to be more severe.<br><br>
+    <div class="codeTutorial">
+	<pre>
+		<code>
+	{"type":"Feature","properties":{"mag":1,"place":"50km NE of Mammoth Lakes, California","time":1554463059770,"updated":1554463161642,"tz":-480,"url":"https://earthquake.usgs.gov/earthquakes/eventpage/nn00681586","detail":"https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nn00681586.geojson","felt":null,"cdi":null,"mmi":null,"alert":null,"status":"automatic","tsunami":0,"sig":15,"net":"nn","code":"00681586","ids":",nn00681586,","sources":",nn,","types":",geoserve,origin,phase-data,","nst":6,"dmin":0.201,"rms":0.23,"gap":125.41,"magType":"ml","type":"earthquake","title":"M 1.0 - 50km NE of Mammoth Lakes, California"},
+    
+        "geometry":{"type":"Point","coordinates":[-118.496,37.909,0.2]},"id":"nn00681586"}
+		</code>
+	</pre>
+	</div>
+        
+    <p>Earthquakes can be form in lots of different ways, one common way an earthquake uses to take form is through seismic activity. For example when the tectonic plates move it can create lots of high energy and this is what makes the ground shake. It's also a reason why earthquakes are more common in regions close to the edge of the tectonic plates. The severity of an earthquake is indicated by it's Magnitude rating, which comes from the Richter Scale. Earthquakes are rated from 0 to 10, with earthquakes below a rating of 5 being more common and earthquakes above 5 tend to be more severe.<br><br>
     
     The goal of this wepage is to allow for the user to view different earthquakes in real time on a map. The user is given a selection of buttons to click on that will manipulate the data of the API to display different time periods and so on. Each earthquake recorded in the API returns a set of coordinates which are then use to create a pin point marker on the Google maps map.<br><br>
+    
+    Below is an example of the data being called using ajax. The end of the url has "4.5_day.geojson" this is what defines what data is returned. In this example only earthquakes with magnitude above 4.5 in the last 24 hours is returned. Above that a google map is generated as well.
+    <div class="codeTutorial">
+	<pre>
+		<code>
+	       $('#day').click(function () {
+                map = new google.maps.Map(document.getElementById('mapLayout'), {
+                zoom: 2,
+                center: new google.maps.LatLng(2.8, -187.3),
+                mapTypeId: 'terrain'
+                });
+                $.ajax({
+                url:"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_day.geojson",
+		</code>
+	</pre>
+	</div>
         
-    As the page can be used to view data over a period of 7 days or even 30 days, many pin pointers can appear in the same location. When this happens, the markers are then clustered together. So that when they are clicked on the map will zoom in on that area to show the individual earthquakes.<br><br>
+    <p>Then the coordinates of each earthquake is used to create the markers. This comes from val.geometry.coordinates and is then set to latLng. An array of the markers is made and put onto the map, also a cluster of markers is created using the markercluster tool from Google.</p>
+    <div class="codeTutorial">
+	<pre>
+		<code>
+        i = 0;
+        var markers = []; 
+        $.each(data.features, function (key, val) {
+            var coords = val.geometry.coordinates;
+            var latLng = new google.maps.LatLng(coords[1], coords[0]);
+            var marker = new google.maps.Marker({
+                position: latLng,
+                map: map
+            });
+            markers[i++] = marker;
+        });
+        var markerCluster = new MarkerClusterer(map, markers,
+            { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+                  
+		</code>
+	</pre>
+	</div>
         
-    When the user clicks on one of the pin markers that represents an earthquake, a pop up window will appear that will display information about the earthquake that's been clicked on, this information includes the earthquakes magnitude and more information about it's location as well.<br><br>
+    <p>As the page can be used to view data over a period of 7 days or even 30 days, many pin pointers can appear in the same location. When this happens, the markers are then clustered together. So that when they are clicked on the map will zoom in on that area to show the individual earthquakes.<br><br>
+        
+    When the user clicks on one of the pin markers that represents an earthquake, a pop up window will appear that will display information about the earthquake that's been clicked on, this information includes the earthquakes magnitude and more information about it's location as well.<br><br></p>
    
-    </p>
     </div>
 	</body>
     

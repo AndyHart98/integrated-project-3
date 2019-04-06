@@ -11,12 +11,12 @@ h1 {
 h2 {
 	
 	font-family: 'Roboto', sans-serif;
-	
+	text-align: center;
 }
 
 h3{
 	font-family: 'Roboto', sans-serif;
-	
+	text-align: center;
 }
 
 h4{
@@ -39,6 +39,10 @@ p{
 	font-family: 'Roboto', sans-serif;
 }
 
+p.index{
+    text-align: center;
+}
+
 /*---------------Navigation bar-------------*/
 
 /*The following CSS was taken from https://www.w3schools.com/howto/howto_js_topnav_responsive.asp to help make the top navigation bar more responsive for the size of the browser*/
@@ -47,12 +51,13 @@ p{
   .topnav a.icon {
     float: right;
     display: block;
+    padding: 0;
   }
 }
 
 @media screen and (max-width: 600px) {
   .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
+  .topnav.responsive a.icon {
     position: absolute;
     right: 0;
     top: 0;
@@ -60,37 +65,19 @@ p{
   }
     
   .topnav{
-    background-color: black;
-    overflow: hidden;
-    padding: 11px;
-    
+    text-align: left;
   }
-    
-    .topnav a{
-    float: left;
-    color: white;
-    display: block;
-    padding-top: 11px;
-    padding-right: 11px;
-    padding-left: 11px;
-    text-decoration: none;
-    transition: color 0.5s ease-in-out;
-}
     
   .topnav.responsive a {
     float: none;
     display: block;
     text-align: left;
-  }
-  .topnav.responsive{
-    background-color: black;
-  }   
+  } 
 }
 
 .topnav{
-    padding: 11px;
     background-color: darkslategrey;
-    width: 100%;
+    padding: 11px;
 }
 
 .topnav a{
@@ -158,13 +145,6 @@ p{
   .col-12 {width: 100%;}
 }
 
-.topnav{
-    padding: 11px;
-    color:white;
-    position: absolute;
-    width: 100%;
-}
-
 img.header {
     width: 100%;
     height: auto;
@@ -216,7 +196,7 @@ button{
 
 button:hover{
 	border-radius: 5px;
-    border: 2px solid #black;
+    border: 2px solid black;
     font-size: 15px;
 	color: white;
 	background-color: #323438;
@@ -227,38 +207,38 @@ button:hover{
 	transition: 0.4s;
 }
 
-/*------Earthquake navigation bar(text is changed to black---------*/
+/*------Black Text Nav Bar---------*/
 @media screen and (max-width: 600px) {
-  .topnavEQ a:not(:first-child) {display: none;}
-  .topnavEQ a.icon {
+  .topnavBlack a:not(:first-child) {display: none;}
+  .topnavBlack a.icon {
     float: right;
     display: block;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .topnavEQ.responsive {position: relative;}
-  .topnavEQ.responsive a.icon {
+  .topnavBlack.responsive {position: relative;}
+  .topnavBlack.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
     
   }
     
-  .topnavEQ{
+  .topnavBlack{
     text-align: left;    
   }
-  .topnavEQ.responsive a {
+  .topnavBlack.responsive a {
     float: none;
     display: block;
     text-align: left;
   }
-  .topnavEQ.responsive{
+  .topnavBlack.responsive{
     background-color: #463E3E;
   }
 }
 
-.topnavEQ a{
+.topnavBlack a{
     color: black;
     padding-top: 11px;
     padding-right: 11px;
@@ -267,17 +247,74 @@ button:hover{
     transition: color 0.5s ease-in-out;
 }
 
-.topnavEQ .icon {
+.topnavBlack .icon {
     display: none;
 }
 
-.topnavEQ a:hover{
+.topnavBlack a:hover{
     color: white;
 	text-shadow: 1px 1px 3px black;
 	transition: 0.2s;
 }
 
-.topnavEQ{
+.topnavBlack{
+    padding: 11px;
+    color:black;
+    position: absolute;
+    width: 100%;
+}
+
+/*------White Text Nav Bar---------*/
+@media screen and (max-width: 600px) {
+  .topnavWhite a:not(:first-child) {display: none;}
+  .topnavWhite a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnavWhite.responsive {position: relative;}
+  .topnavWhite.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+  }
+    
+  .topnavWhite{
+    text-align: left;    
+  }
+  .topnavWhite.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnavWhite.responsive{
+    background-color: #463E3E;
+  }
+}
+
+.topnavWhite a{
+    color: white;
+    padding-top: 11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+
+.topnavWhite .icon {
+    display: none;
+}
+
+.topnavWhite a:hover{
+    color: white;
+	text-shadow: 1px 1px 3px black;
+	transition: 0.2s;
+}
+
+.topnavWhite{
     padding: 11px;
     color:black;
     position: absolute;
@@ -413,7 +450,7 @@ img {
     flex-basis: 100%;
   }
 }
-
+/*
 .fa {
   padding: 20px;
   font-size: 30px;
@@ -442,7 +479,7 @@ img {
 .socialMediaIcons {
 text-align: center;
 }
-
+*/
 pre {
     background: #EEEEEE;
     border: 1px solid #ddd;
