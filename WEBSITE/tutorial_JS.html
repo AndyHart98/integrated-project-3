@@ -6,7 +6,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
 
-<script src="scripts/hamburgerMenu.js"></script>
+<script src="scripts/hamburgerMenuB.js"></script>
     <head>
         <title>Weather Tutorial</title>
     </head>
@@ -31,9 +31,85 @@
 
     <body>
     <div class="content">
-	<h2>Java Tutorial</h2>
-	<p>The website makes use of JavaScript throughout all of it's features. It's used for different things such as creating Google Maps and populating data onto those maps. As well as creating pie charts and creating data visualised onto a bar chart.
+	<h2>JavaScript Tutorial</h2>
+    <br>
+	<p>The website makes use of JavaScript throughout all of it's features. It's used for different things such as creating Google Maps and populating data onto those maps. As well as creating pie charts and creating data visualised onto a bar chart.<br><br>
+    Throughout the website several different APIs are accessed, they're used to display different kinds of data. To achieve this in real time without the website pages having to be refreshed, Ajax is used to dynamically populate the website with information.<br><br>
+    Here is an example of Ajax being used in the website:
+    The following example is taken from the script used to access the planes API. The api retuned returns a JSON file which is then accessed to display the planes into a map. The end of the url shows that only planes arriving at Glasgow Airport should be displayed. 
 	</p>
+    <br>
+        
+    <div class="codeTutorial">
+    <pre>
+        <code>
+            $.ajax({
+                
+            url:"https://aviation-edge.com/v2/public/flights?key=4f1ee1-6d9b51&arrIata=GLA",
+            type: "GET",
+            dataType: "json",
+            error: function () {
+            $('#error').html('display error to html page');
+            }
+        </code>
+    </pre>
+    </div>
+    <br>
+    <P>To display the data provided by the API that tracks Tornados, we had to find a way that would show the data on the screen without having to scroll down the page. To solve this a back and next button were implemented. In this example of the "next button" the current item in the array has it's coordinates and relevant data exported onto the site. 1 is added to the variable to i to ensure that the next tornado displayed is in fact the next tornado. In the function for the back button, i has 2 taken away from it at the start of the function.
+    </P>
+    <br>
+    <div class="codeTutorial">
+    <pre>
+        <code>
+            $('#nextT').click(function () {
+                    var list = document.getElementById("tornados");
+                    while (list.hasChildNodes()) {   
+                      list.removeChild(list.firstChild);
+                    }
+                    paragraph = "ul";
+                    var results = data.results;
+                    var location = results[i].location;
+                    console.log(results[i].location);
+                    paragraph += "li" + "Name: " + results[i].title + "/li";
+                    paragraph += "li" + "Start time: " + results[i].start + "/li";
+                    paragraph += "li" + "Location: " + results[i].timezone + "li";
+                    paragraph += "li" + "Co-ordinates on map" + "li";
+                    paragraph += 'iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q='+location[1] +','+location[0]+'&amp;key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM&zoom=11" allowfullscreen>iframe'
+                    paragraph += "ul"
+		            $("#tornados").append(paragraph);
+                    i++;
+                });
+        </code>
+    </pre>
+    </div>
+    <p>On some of the webpages a map is initilized at when the webpage is opened, this happens because when the webpage is opened a script is run that will display the map on the page.
+    <br><br>
+    Below is an example of how this is done:
+    </p>
+    <div class="codeTutorial">
+    <pre>
+        <code>
+            
+var map;
+		
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('mapLayout'), {
+                zoom: 2,
+                center: new google.maps.LatLng(2.8, -187.3), // Center  Map. Set this to any location that you like
+                optimized: false,
+                icon: {url: 'plane.png', scaledSize: new google.maps.Size(25, 25)},
+                mapTypeId: 'terrain' // can be any valid type
+            });
+                google.maps.event.addDomListener(window, "resize",  function() {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center); 
+            });
+        }
+        </code>
+    </pre>
+    </div>
+    
     </div>
 	</body>
 </html>
