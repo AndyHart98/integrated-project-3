@@ -1,0 +1,61 @@
+<html>
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM">
+</script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="scripts/hamburgerMenu.js"></script>
+<script src="https://static.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+<script src="https://static.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
+    <head>
+        <title>Earthquakes and Weather - Floods</title>
+    </head>
+    <header>
+    <div class="test">
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="Flood.html">Floods</a>
+            <a href="flights.html">Plane Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+        
+</header>
+    <br>
+    <br>
+    <body>
+    <div class="content">
+	
+		<p>
+		Flood Data is displayed in 5 different categories,<br>
+		County - Showing the Area of the flood in England.<br>
+		Message - A Small Description of the flood, If undefined is shown then there is no description of the flood at current time.<br>
+		Severity Level - Saying how serious the flood.<br>
+		Is Tidal? - True stating that the water is still rising and False stating that it is not.<br>
+		Severity level number - A number range of 1 to 4 stating how bad the flood is 4 being very serious and 1 being the least serious.<br>
+		
+		
+		</p>
+		
+        <button type="button" id="Floods">Show Flood Data</button>
+		<button type="button" id="FloodsGraph">Show Floods Graph</button>
+		<div id="show"></div>
+		<div id="showGraph"></div>
+        <div id="test"></div>
+        <div id="error"></div>
+		<script src="scripts/FloodScript.js"></script>
+		<div id="PieGraph"></div>
+		
+		
+        </div>
+    </body>
+<html>

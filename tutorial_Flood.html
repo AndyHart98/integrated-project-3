@@ -1,0 +1,229 @@
+<html>
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
+
+<script src="scripts/hamburgerMenuB.js"></script>
+    <head>
+        <title>Floods Tutorial</title>
+    </head>
+    <header>
+    <div class="test">
+        <div class="topnavBlack" id="myTopnavBlack">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="">Floods</a>
+            <a href="">Plane Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+	<img class="header" src="Images/floodsHeader.png"/>
+</header>
+
+    <body>
+    <div class="content">
+	<h2>Flood Data Tutorial</h2>
+
+<p>
+The data for the Floods in pulled from an external API, the API is the Enviroment agency one which covers flood areas in England in great detail. Below is some example data that is given by the API. 
+</p>
+	
+	<div class="codeTutorial">
+	<pre>
+		<code>
+	"items" : [ {
+		"@id" : "https://enviroment.data.gov.uk/flood-monitoring/id/floods/105856" ,
+		"description" : "North Dartmoor Rivers" ,
+		"eaAreaName" : "Devon" ,
+		"eaRegionName" : "South West" , 
+		"floodArea" : {
+			"@id" : "https://enviroment.data.gov.uk/flood-monitoring/id/floodAreas/113WAFTW12" , 
+			"county" : "Devon" , 
+			"notation" : "113WAFTW12" , 
+			"polygon" : "https://enviroment.data.gov.uk/flood-monitoring/id/floodAreas/113WAFTW12/polygon" , 
+			"riverOrSea" : "River Taw, River Okement"
+		}
+		,
+		"floodAreaID" : "113WAFTW12" , 
+		"isTidal" : false ,
+		"message" : "Flooding is possible over Thurday night and into Friday Morning. Heavy showers across the catchment could affect local watercourses during the night and early morning. River levels have shown a small
+	response to rain yesterday night. Forecast information showns that wetted catchements might react to overnight rain, causing a further small rise in river levels, \n \nFlooding could occur between 03:00 and 05:00 on 05/04/19.
+	We believe there is a possibility of flooding in the areas of Jacobstowe, Okehampton, North Tawton. \n \nFlooding of properties is not forecast at this point. \nWe are closely monitoring the situation. Our incident response
+	staff are continuing to monitor river levels in the catchment. \n \nPlan driving routes to avoid low lying roads near rivers, which may be flooded. This message will be updated tomorrow morning, 05/04/19, or as the
+	situation changes." ,
+		"severity" : "Flood Alert" , 
+		"severity level" : 3 , 
+		"timeMessageChanged" : "2019-04-04T15:43:00" ,
+		"timeRaised" : "2019-94-04T15:43:00" , 
+		"timeServerityChanged" : "2019-04-04T15:43:00"
+	}
+		</code>
+	</pre>
+	</div>
+	
+	<p>
+	This webpage allows users to check current floods in England by clicking the button and having a listing appear of specific details for each flood, and another button is used to create a pie chart showing
+	the number of occurances for each different severity level that are currently happening. The API uses data in the form of an array of objects so to display the data the url is needed and it needs to be looped through to select the correct data.	
+	</p>
+	
+	<p>
+	Floods API:
+	</p>
+	<pre>
+		<code>
+	url: "https://environment.data.gov.uk/flood-monitoring/id/floods",
+		</code>
+	</pre>
+	
+	<p>
+	The information pulled from the Flood API is County, Message, severity, isTidal and severityLevel. To display the data, the script uses nodes to contain the data, which is then sent to the main webpage.
+	</p>
+	
+	<p>
+	Information display code:
+	</p>
+	
+		<pre>
+		<code>
+		function show(FloodData){
+	
+	
+		
+		
+		
+		for (i = 0; i < FloodData.items.length; i++) {
+		var obj = FloodData.items[i];
+		console.log(obj);
+
+		
+		
+		console.log(i);
+        console.log(FloodData.items.length);
+
+            
+        var p = document.createElement("p");
+		var br = document.createElement("br");
+        var node = document.createTextNode("County = ");
+        var node2 = document.createTextNode(FloodData.items[i].floodArea.county);
+		
+        var node3 = document.createTextNode("Description = " );
+        var node4 = document.createTextNode(FloodData.items[i].message);
+
+        var node5 = document.createTextNode("Severity Level = " );
+        var node6 = document.createTextNode(FloodData.items[i].severity);
+
+        var node7 = document.createTextNode("Is the area tidal? = " );
+        var node8 = document.createTextNode(FloodData.items[i].isTidal);
+
+        var node9 = document.createTextNode("Severity Level Number = " );
+        var node10 = document.createTextNode(FloodData.items[i].severityLevel);
+        
+        
+            
+            
+        p.appendChild(node);
+        p.appendChild(node2);
+		p.appendChild(br);
+        p.appendChild(node3);
+        p.appendChild(node4);
+		p.appendChild(br.cloneNode());
+        p.appendChild(node5);
+        p.appendChild(node6);
+		p.appendChild(br.cloneNode());
+        p.appendChild(node7);
+        p.appendChild(node8);
+		p.appendChild(br.cloneNode());
+        p.appendChild(node9);
+        p.appendChild(node10);
+        var element = document.getElementById("show");
+
+        element.appendChild(p);  
+		}
+	}
+		</code>
+	</pre>
+	
+	
+	<p>
+	No Flood data display
+	</p>
+	<pre>
+		<code>
+	function error() {
+	return "<h3>There are currently no floods in England to report.</h3>"
+	}
+		</code>
+	</pre>
+	
+	<p>
+	The page also displays a pie chart using the AnyChart plugin for JavaScript, which shows the occurence of each severity level. Here is the graph display code:
+	</p>
+	
+	<pre>
+		<code>
+	function showGraph(FloodData){
+		var GraphData = [];
+	
+	function getOccurrence(array, value){
+        return array.filter((v) => (v === value)).length;
+		}
+		
+	
+		for (i = 0; i < FloodData.items.length; i++) {
+		GraphData.push(FloodData.items[i].severityLevel);
+		
+		console.log(GraphData);
+	
+		}
+		
+		
+		var Occurrence1 = getOccurrence(GraphData, 1);
+		var Occurrence2 = getOccurrence(GraphData, 2);
+		var Occurrence3 = getOccurrence(GraphData, 3);
+		var Occurrence4 = getOccurrence(GraphData, 4);
+		
+		var GraphDataReal = [
+		{x:"Severity Level 1", value: Occurrence1},
+		{x:"Severity Level 2", value: Occurrence2},
+		{x:"Severity Level 3", value: Occurrence3},
+		{x:"Severity Level 4", value: Occurrence4}
+		];
+		
+		console.log(GraphDataReal);
+		
+		var chart = anychart.pie();
+		
+		chart.title("Number of Floods in England based of Severity level: Rated 1 to 4.");
+		
+		chart.data(GraphDataReal);
+		
+		chart.container('showGraph');
+		
+		chart.draw();
+
+		
+}
+		</code>
+	</pre>
+	
+
+	
+
+	
+
+	
+	
+	<p>
+	A more detailed description of the Floods API used can be found <a href="https://environment.data.gov.uk/flood-monitoring/doc/reference">here</a>.
+	</p>
+	
+        </div>
+	</body>
+</html>
