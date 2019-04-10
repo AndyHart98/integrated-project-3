@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href = "https://api.predicthq.com/v1/events/?label=wind/">
+<script src="scripts/hamburgerMenu.js"></script>
+    <head>
+        <title>Tornados</title>
+    </head>
+    <header>
+
+        <div class="textCenter">
+            <div class="topnav" id="myTopnav">
+                <a href="index.html">Home</a>
+                <a href="earthquakes.html">Earthquakes</a> 
+                <a href="weather.html">Weather</a>
+                <a href="uvIndex.html">UV Index</a>
+                <a href="flood.html">Floods</a>
+                <a href="flights.html">Flights Tracker</a>
+                <a href="tornados.html" class="active">Tornados</a>
+                <a href="authors.html">Authors</a>
+                <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+                <i class="fa fa-bars"></i>
+                </a>  
+            </div>
+        </div>
+</header>
+    <body>
+	<h1>Tornados</h1>
+	<!--h2 tag is kept outside of content div so that it can stretch across the page, without going to new line-->
+	<h2> Use the previous and next buttons to browse details of recent tornados all around the world</h2>
+	<div class="content">
+	<div class="buttons">
+        <button id="backT">Back Button</button>
+        <button id="nextT">Next Button</button>
+	</div>
+		<div id="tornados">
+		<script src = "scripts/tornados.js"></script>
+		</div>
+	</div>
+    </body>
+</html>

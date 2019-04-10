@@ -1,0 +1,125 @@
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/hamburgerMenuW.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        
+<head>
+    <title>UVI Data Tutorial</title>
+</head>
+<header>
+    <div class="textCenter">
+        <div class="topnavWhite" id="myTopnavWhite">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="flood.html">Floods</a>
+            <a href="flights.html">Plane Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+                                
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>     
+        </div>
+         </div>         
+
+	<img class="header" src="images/tornados_banner.png"/>
+</header>
+    <body>
+    <div class="content">
+    <h2>Tornados Data Tutorial</h2>
+        
+    <br>
+    <br>
+    <p>    
+    When the user clicks on the page, they will have the option to browse details of the tornados currently occurring around the world. The user can browse the tornados using the next and back buttons provided on the page The data about the tornados has been taken from an API which shows data about world events, from concerts to severe weather. When a request is made, it returns the following data in JSON format:
+    </p>   
+    <br>
+    <div class="codeTutorial">
+    <pre>
+    <code>
+        "results": [
+        {
+            "relevance": 1,
+            "id": "aH3cWUhB5PVUJNuy6d",
+            "title": "Tornado - North-America - USA",
+            "description": "After a severe band of thunderstorms blasted across southeast Louisiana on Sunday, the National Weather Service on Tuesday is sending out teams Tuesday to investigate whether a tornado had swiped across a nearly 40-mile-long path through southern Ascension and Livingston parishes. Wind damage reports and radar signatures of tornado-like rotation in the atmosphere extend from Lemannville, which is near Donaldsonville in western Ascension Parish, to White Hall in Livingston Parish, Kevin Gilmore, meteorologist with the National Weather Service office in Slidell, said Monday. Damage reports have also come from French Settlement in Livingston and across the Amite River in St. Amant, where firefighters reported at least five homes and several cars and boats were damaged. Evidence of damaging winds, including their path from the southwest to the northeast, was apparent Monday afternoon in St. Amant as tree limbs were smashed, roofs stripped of shingles, fences knocked down and one above-ground pool left a rumpled mess. St. Amant firefighters said some residents reported seeing a tornado in the area around Rogers A, B and C roads off La. 22, but Holly Allen, 39, said she only heard the twister. First wood from her smashed carport broke a window in her home on Rogers C Road and then the infamous freight-train sound arrived outside. \"It really does sound like what I was always told as child,\" Allen said. Wind damage was reported as happening first in Lemannville about 7:30 p.m. Sunday while the last damage was reported as happening in White Hall about 8 p.m., Gilmore said Allen said the twister arrived at her home in St. Amant at 7:41 p.m. while she was on the phone with her aunt, talking about the Weather Service tornado warning. The warning for Ascension extended from 7:30 and 7:45 p.m. Sunday. St. Amant firefighters said no one was injured in their area, but there were indirect health consequences from the winds. Wendy Cooper, 60, said she took her 85-year-old mother to the emergency room after she lost power Sunday and was not able to have the oxygen she needed while she slept. Allen and her 17-year-old son hid in the bathroom, she said, until the noise stopped about five minutes later.",
+            "category": "severe-weather",
+            "labels": [
+                "tornado",
+                "weather"
+            ],
+            "rank": 70,
+            "local_rank": null,
+            "duration": 0,
+            "start": "2019-04-09T03:07:52Z",
+            "end": "2019-04-09T03:07:52Z",
+            "updated": "2019-04-09T03:10:46Z",
+            "first_seen": "2019-04-09T03:10:25Z",
+            "timezone": "America/Chicago",
+            "location": [
+                -90.868986,
+                30.224641
+            ],
+            "scope": "locality",
+            "country": "US",
+            "place_hierarchies": [
+                [
+                    "6295630",
+                    "6255149",
+                    "6252001",
+                    "4331987",
+                    "4315067",
+                    "4339429"
+                ],
+                [
+                    "6295630",
+                    "6255149",
+                    "6252001",
+                    "4331987",
+                    "4315067",
+                    "4322811"
+                ]
+            ],
+            "state": "active"
+        }
+    </code>
+    </pre>
+    </div>
+    <br>
+    <p>
+    The information displayed about the tornado is taken from the API and displayed onto the wepage, while the latitude and longtitude coordindates taken from the api are used to place a marker on a Google Maps map. Additionally the coordinates are then displayed in the top left hand corner of the map.
+	<br>
+	The coordinates are then used to plot the point of origin on the map, however they are taken in from the API in reverse order, longitude first.<br><br>
+    
+    The following is an example of how the data is displayed onto the webpage using JavaScript. When the next button is clicked on, the current indexed Tornado in the array is displayed.
+    </p>
+    <br>
+    <div class="codeTutorial">
+    <pre>
+    <code>
+    paragraph = "&lt;ul>";
+    var results = data.results;
+    var location = results[i].location;
+    console.log(results[i].location);
+    paragraph += "&lt;li>" + "Name: " + results[i].title + "&lt;/li>";
+    paragraph += "&lt;li>" + "Start time: " + results[i].start + "&lt;/li>";
+    paragraph += "&lt;li>" + "Location: " + results[i].timezone + "&lt;/li>";
+    paragraph += "&lt;li>" + "Co-ordinates on map" + "&lt;li>";
+    paragraph += '&lt;iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q='+location[1] +','+location[0]+'&amp;key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM&zoom=11" allowfullscreen>&lt;/iframe>'
+    paragraph += "&lt;/ul>"
+    $("#tornados").append(paragraph);
+    i++;
+    </code>
+    </pre>    
+    </div>
+    
+    </div>    
+    </body>
+<html>

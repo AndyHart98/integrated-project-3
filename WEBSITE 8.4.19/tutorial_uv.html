@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/hamburgerMenuB.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+       
+<script src="scripts/uv.js"></script>
+<head>
+    <title>UVI Data Tutorial</title>
+</head>
+<header>
+    <div class="textCenter">
+        <div class="topnavWhite" id="myTopnavWhite">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a>
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="flood.html">Floods</a>
+            <a href="flights.html">Flights Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>                 
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>    
+        </div>
+         </div>        
+                <img class="header" src="images/uvindex_banner.png"/>
+</header>
+    <body>
+    <div class="content">
+    <h2>UV Index Data Tutorial</h2>
+       
+    <br>
+    <br>
+    <p>   
+    First, the user must enter the name of a town or city and its country.
+       
+    <br>
+    <br>
+       
+    Should the user decide to get the current UV Index (recorded at midday local time), the website converts the location input to its corresponding coordinates i.e. latitude(lat) and longitude(long).
+       
+    <br>
+    <br>
+       
+    This is done by using a geolocation API that uses keywords (the user's input) and pulls the relevant data.
+       
+    <br>
+    <br>
+       
+    Next, the website uses another API from OpenWeatherMap, and searches for the current UV Index by the coordinates it had converted from the place name.
+        
+    <br>
+    <br>
+       
+    The use of 2 API's here is essential, because the UV Index(UVI) API is only able to make requests using latitude and longitude, and users do not know precise coordinates of locations from memory, so there has to be a convertion to lat and long before UVI request is made.
+        
+    <br>
+    <br>
+   
+    
+    When a request is made, it returns the following data in JSON format:</p>
+    <br>
+    <div class="codeTutorial">
+    <pre>
+    <code>
+    {"lat":55,"lon":-4,"date_iso":"2019-04-08T12:00:00Z","date":1554724800,"value":2.93}
+    </code>
+    </pre>
+    </div>
+   
+    <br>
+ 
+    <p> 
+    To show the current UVI reading, it simply returns the "value" field.
+        
+    <br>
+    <br>
+ 
+    Should the user decide to get a 7-Day UVI Forecast, they enter a location as before and it is converted to lat and long. Using a slightly different request call to OpenWeatherMap, the website adds the lat and long to the request URL, but this time states how many days returned. To return a weeks forecast, this value should be 6, as data from Day 1 is stored in position 0, so adding '&cnt;=6' to the URL means days 0-6, which is 7 in total (i.e. number of days in a week).<br><br>
+   
+    Below is an example of this data being called with ajax:</p>
+    <br>
+    
+    <div class="codeTutorial">
+    <pre>
+   
+    <code>
+    function show3(forecastdata){
+   
+    var lat = forecastdata.results[0].geometry.lat;
+    var lon = forecastdata.results[0].geometry.lng;
+   
+        $.ajax({
+                               
+                                url: 'http://api.openweathermap.org/data/2.5/uvi/forecast?appid=2730b5f7f1b2a5c8426a822aca53fed1&lat=' + lat + '&lon=' + lon + '&cnt=6',
+                                type: "GET",
+                                dataType: "json",
+                                success: function(data4){
+                                                var widget = show4(data4);
+                                               
+                                                $("#show4").html(widget);
+    }
+        });
+    }
+    </code>
+   
+    </pre>
+        
+        
+    </div>
+       
+        
+    <br>
+    <br>
+       
+    <p>It returns in the same JSON format, except now there is data for 7 days and not just one day as before. The website then pushes the "value" field of each day on to an array.
+       
+    <br>
+    <br>
+       
+    To display the UVI forecast values, it feeds the array data into a Chart.js bar graph, and plots the UVI values from the array against each of the 7 days ahead. Chart.js also allows you to enable a responsivness option, where resizing the web page automatically ajusts the graph to fit.
+        
+    <br>
+    <br>
+               
+    Some example coding of the array with Chart.js is as follows:</p>
+    <br>
+   
+    <div class="codeTutorial">
+    <pre>
+    <code>
+    function show4(data4){
+    
+    
+        var array1 = [];
+            
+            for(var i=0; i&lt;data4.length; i++) {
+            array1.push(data4[i].value);
+        }
+   
+             
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+        datasets: [{
+            label: 'UV Index',
+            data: array1,
+            backgroundColor: [
+                "rgba(255,99,132,0.2)"
+            ],
+            borderColor: [
+                "rgba(255,99,132,1)"
+               
+            ],
+            borderWidth: 1
+           
+        }]
+    }
+     </code>
+     </pre>
+     </div>
+ 
+                               
+        </div>   
+    </body>
+<html>

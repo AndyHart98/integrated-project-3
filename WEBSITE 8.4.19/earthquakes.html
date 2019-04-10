@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCtAqEPKCwtioxmtQeR5tac5DYAdSpTJM&callback=initMap" async defer></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="scripts/hamburgerMenu.js"></script>	
+	<head>
+        <title>Earthquake Maps</title>
+    </head>
+    <header>
+    <div class="textCenter">
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html" class="active">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="flood.html">Floods</a>
+            <a href="flights.html">Flights Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+</header>
+    <body>
+	<h1>Earthquake Maps</h1>
+    <h2>Choose a time period</h2>
+	
+	<div class="buttons">
+        <button type="button" id="hour">Past Hour</button>
+        <button type="button" id="hourSig">Past Hour Significant</button>
+        
+        <button type="button" id="day">Past Day</button>
+        <button type="button" id="daySig">Past Day Significant</button>
+        
+        <button type="button" id="week">Past Week M4.5+</button>
+        <button type="button" id="weekSig">Past Week Significant</button>
+        <div id="error"></div>
+    </div>
+    <br>
+    <div id="mapLayout"></div>
+	<script src="scripts/earthquakes.js"></script>
+    </body>
+</html>

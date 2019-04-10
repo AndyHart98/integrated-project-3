@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56O6IReihOpNjik9F3eTWVKwaR7WE9q4&callback=initMap"></script>
+
+<script src="scripts/hamburgerMenuB.js"></script>
+    <head>
+        <title>Flights Tutorial</title>
+    </head>
+    <header>
+    <div class="textCenter">
+        <div class="topnavWhite" id="myTopnavWhite">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html">UV Index</a>
+            <a href="flood.html">Floods</a>
+            <a href="flights.html">Flights Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+<img class="header" src="images/flights_banner.png"/>
+
+<body>
+    <div class="content">
+    
+	<h2>Plane Tracker Tutorial</h2> 
+		
+		<br>
+			
+		<p>For the data of the flights to be retrieved an external API must be used to pull the information in order to display it on the map.</p>
+		<p>The API that was used for this is from Aviation-Edge and is their "Flight Tracker" API</p>
+		<p>This includes an abundance of information about each flight from departures and arrivals to current flight speeds.<br>
+			When called, the API will return this data in the following JSON format: </p> 
+		<br>
+		
+	<pre>
+		<code>
+		[ { "geography": { "latitude": 47.8901, "longitude": -3.66528, "altitude": 11582.4, 
+		"direction": 2.72637 }, "speed": { "horizontal": 814.88, "isGround": 0, "vertical": 0 }, 
+		"departure": { "iataCode": "AGP", "icaoCode": "LEMG" }, "arrival": { "iataCode": "GLA", "icaoCode": "EGPF" }, 
+		"aircraft": { "regNumber": "GEZRV", "icaoCode": "A320", "icao24": "4074B4", "iataCode": "A320" }, 
+		"airline": { "iataCode": "U2", "icaoCode": "EZY" }, "flight": { "iataNumber": "U26864", "icaoNumber": "EZY6864", "number": "6864" }, 
+		"system": { "updated": "1554845919", "squawk": "0" }, "status": "en-route" },
+		</code>
+	</pre>
+		
+		<p>The purpose of this webpage is for users to use in parallel with the rest of the site (for example the Earthquakes and Floods pages etc), in order to stay safe and aware on their travels of what is happening in the world around them. <br>
+		<p>It allows users to simply at the click of a button, view a live feed of current flights around the world and their location. Additional information is also available including the flights current altitude, and departure and arrival airports.</p>
+		<p>To view this information on the map, firstly the user must click the "View Flights" button, this will then call the API which returns in the JSON format as shown above. To display the flights on the map, the longitude and latitude of each plane is used to create a custom marker on the map which is displayed as an image of a plane. The degrees is also included in the API which is used to display the direction which the plane is headed.</p>
+		<p>The user may also click on any of the plane markers to view more information about the flight, such as the current altitude of the plane and departure and arrival destinations.</p>
+	<div class="textCenter">
+	<img src="images/plane_infowindow.png" alt="plane_infowindow_image">
+	</div>
+		<br> 
+		<br>
+		
+</body>
+</html>

@@ -1,0 +1,602 @@
+* {
+    box-sizing: border-box;
+}
+
+/*h1 tag styling used specifically for page headers*/
+h1 {
+	font-family: 'Roboto', sans-serif;
+    text-align: center;
+	color: white;
+    background-color: #00d0d0;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	text-shadow: 2px 2px black;
+	/*Removes margin so there is no gap between navbar and page heading*/
+	margin-top: 0;
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+}
+
+h3{
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+}
+
+h4{
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+/*Gives website a grey background colour*/
+body{
+	margin: 0;
+	background-color: #EEEEEE;
+}
+
+p{
+    font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*Used to center text throughout the website*/
+.textCenter{
+    text-align: center;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+/*---------------Navigation bar-------------*/
+
+/*Adds hover colour to hamburger menu*/
+.fa:hover {
+  color: #fff;
+}
+
+/*The following CSS was taken from https://www.w3schools.com/howto/howto_js_topnav_responsive.asp to help make the top navigation bar more responsive for the size of the browser*/
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+  }
+    
+  .topnav{
+    text-align: left;
+  }
+    
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  } 
+}
+
+.topnav{
+    background-color: darkslategrey;
+    padding: 11px;
+}
+
+.topnav a{
+    color: white;
+    padding-top: 11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.topnav a:hover{
+	text-shadow: 3px 3px 3px #A19B9B;
+	transition: 0.2s;
+}
+
+/*----------------------------------------------*/
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+  width: 100%;
+}
+
+/*Max width for content so that content is kept within the center of the screen*/
+.content{
+  max-width: 800px;
+  margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+@media only screen and (min-width: 768px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+/*Styling for banner image used on the homepage and all of the tutorial pages*/
+img.header {
+    width: 100%;
+    height: auto;
+	margin-bottom: 0;
+}
+
+/*------Black Text Nav Bar---------*/
+@media screen and (max-width: 600px) {
+  .topnavBlack a:not(:first-child) {display: none;}
+  .topnavBlack a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnavBlack.responsive {position: relative;}
+  .topnavBlack.responsive .icon {
+    /*Positions the hamburger menu correctly when it is clicked*/
+	position: absolute;
+    right: 11px;
+    top: 11px;
+  }
+    
+  .topnavBlack{
+    text-align: left;    
+  }
+    
+  .topnavBlack.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+    color: white;
+  }
+  .topnavBlack.responsive{
+    background-color: #463E3E;
+  }
+}
+
+.topnavBlack a{
+    color: black;
+    padding-top: 11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+
+.topnavBlack .icon {
+    display: none;
+}
+
+.topnavBlack a:hover{
+    color: white;
+	text-shadow: 1px 1px 3px black;
+	transition: 0.2s;
+}
+
+.topnavBlack{
+    padding: 11px;
+    color:black;
+    position: absolute;
+    width: 100%;
+}
+
+/*------White Text Nav Bar---------*/
+@media screen and (max-width: 600px) {
+  .topnavWhite a:not(:first-child) {display: none;}
+  .topnavWhite a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnavWhite.responsive {position: relative;}
+  .topnavWhite.responsive a.icon {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+    
+  }
+    
+  .topnavWhite{
+    text-align: left;    
+  }
+  .topnavWhite.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnavWhite.responsive{
+    background-color: #463E3E;
+  }
+}
+
+.topnavWhite a{
+    color: white;
+    padding-top: 11px;
+    padding-right: 11px;
+    padding-left: 11px;
+    text-decoration: none;
+    transition: color 0.5s ease-in-out;
+}
+
+.topnavWhite .icon {
+    display: none;
+}
+
+.topnavWhite a:hover{
+    color: white;
+	text-shadow: 1px 1px 3px black;
+	transition: 0.2s;
+}
+
+.topnavWhite{
+    padding: 11px;
+    color:black;
+    position: absolute;
+    width: 100%;
+}
+
+/*----------------Earthquake Page CSS--------------*/
+/*Map styling for Earthquake page and flights page*/
+#mapLayout {
+    height: 438px;
+    max-width: 85%;
+    margin-left: 20px;
+    margin-right: 20px;
+	position: relative;
+    margin:auto;
+	padding: 2px 16px;
+	border-radius: 5px;
+	background-color: #EEEEEE;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	border:5px solid #EEEEEE;
+}
+
+@media only screen and (max-width: 600px){
+    .buttons { 
+        max-width: 100%;
+        margin: auto;  
+    }
+}
+
+/*Div class to center buttons and space them out */
+.buttons{
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
+    width: 68%;
+}
+
+/*Button styling*/
+button{
+    border-radius: 5px;
+    border: 1px solid #323438;
+    font-size: 15px;
+	background-color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/*Button styling when button is hovered over with cursor*/
+button:hover{
+	border-radius: 5px;
+    border: 1px solid #323438;
+    font-size: 15px;
+	color: white;
+	background-color: darkslategrey;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+	transition: 0.4s;
+}
+
+/*----------------Weather Page CSS--------------*/
+/*Alignment of search fields*/
+#rowDiv{
+	margin: auto;
+	text-align: center;
+	width: 100%;
+}
+
+/*Search fields (city, longitude, latitude) on weather page*/
+input[type="text"]{
+	height: 40px;
+	font-size: 20px;
+}
+
+/*Search button on weather page*/
+#submitWeather{
+	height: 40px;
+	font-size: 20px;
+}
+
+/*Fixes height and width of weather icon displayed by API on the weather page*/
+.weather_image{
+	height: auto;
+	width: auto;
+}
+
+/*Error message is red and centered on the page*/
+#error{
+	color: #bb0000;
+	text-align: center;
+}
+
+/*If the screen size is 801px wide or more*/
+@media screen and (min-width: 801px) {
+  div.infoWeather {
+    padding-left: 280px;
+	padding-right: 20px;
+	float: left;
+  }
+}
+
+
+/*If the screen size is 800px wide or less, text is aligned left and positioned correctly */
+@media screen and (max-width: 800px) {
+   div.infoWeather {
+   /*text-align: left;*/
+  }
+}
+
+/*Weather information displayed beside map*/
+.contentWeather{
+  padding-top: 20px;
+  padding-right: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/*Weather map styling*/
+#weatherMap {
+    height: 438px;
+	width: 85%;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+    margin:auto;
+	padding: 2px 16px;
+	border-radius: 5px;
+	background-color: #EEEEEE;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	border:5px solid #EEEEEE;
+}
+
+/*Makes the map on the weather page responsive*/
+.map-responsive-weather{
+    overflow:hidden;
+    padding-bottom: 438px;
+    position:relative;
+    height:0;
+}
+
+/*----------------UV Page CSS--------------*/
+
+input[type="number"]{
+	height: 40px;
+	font-size: 20px;
+}
+
+canvas{
+    height:35px;
+    width: 30px;
+}
+
+/*----------------Floods Page CSS--------------*/
+
+/*Formats size of the pie chart displayed on the floods page*/
+#showGraph{
+	width: 600px;
+    height: 600px;
+}
+
+/*----------------Tornados Page CSS--------------*/
+
+/*This is used to remove the bullet points on the tornados page*/
+ul{
+	list-style-type: none;
+}
+
+/*Makes the map on the tornados page responsive*/
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+
+/*Makes the map on the tornados page responsive*/
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
+/*----------------Authors Page CSS--------------*/
+
+/*Author information is displayed within a card*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+}
+
+/*Shadow on card when hovered over with cursor*/
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/*Gives images curved corners on author page*/
+.authorImage img{
+  border-radius: 5px 5px 0 0;
+}
+
+/*Container for text displayed within author cards*/
+.container {
+  max-width: 1335px;
+  margin: 0 auto;
+  padding: 2px 16px;
+}
+
+.grid-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.grid-item {
+  height: 700px;
+  flex-basis: 33.33%;
+  -ms-flex: auto;
+  width: 259px;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media(max-width: 900px) {
+  .grid-item {
+    flex-basis: 50%;
+  }
+}
+
+@media(max-width: 500px) {
+  .grid-item {
+    flex-basis: 100%;
+  }
+}
+
+/*Facebook icon on author page*/
+.fa-facebook {
+  vertical-align: middle;
+  text-decoration: none;
+  margin: 15px 3px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px !important;
+  background: #3B5998;
+  color: white;
+  text-align: center;
+}
+
+/*Twitter icon on author page*/
+.fa-twitter {
+  vertical-align: middle;
+  text-decoration: none;
+  margin: 15px 3px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px !important;
+  background: #55ACEE;
+  color: white;
+}
+
+/*Instagram icon on author page*/
+.fa-instagram {
+  vertical-align: middle;
+  text-decoration: none;
+  margin: 15px 3px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  line-height: 30px !important;
+  background: #125688;
+  color: white;
+}
+
+/*Centers social media icons on author page*/
+.socialMediaIcons {
+text-align: center;
+}
+
+/*----------------Tutorial Page CSS--------------*/
+
+/*Styling for html code snippets*/
+pre {
+    background: white;
+    border: 1px solid #ddd;
+    border-left: 3px solid blue;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow: auto;
+    display: block;
+    word-wrap: break-word;
+}

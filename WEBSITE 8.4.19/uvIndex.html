@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link href="css_files/style_sheets.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/hamburgerMenu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        
+<head>
+    <title>UV Index</title>
+</head>
+<header>
+    <div class="textCenter">
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="earthquakes.html">Earthquakes</a> 
+            <a href="weather.html">Weather</a>
+            <a href="uvIndex.html" class="active">UV Index</a>
+            <a href="flood.html">Floods</a>
+            <a href="flights.html">Flights Tracker</a>
+            <a href="tornados.html">Tornados</a>
+            <a href="authors.html">Authors</a>
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerMenu()">
+            <i class="fa fa-bars"></i>
+            </a>  
+        </div>
+    </div>
+</header>
+    <body>
+	<h1>UV Index</h1>
+    <div class="content">
+		<h2>Enter a Location</h2>
+	<!--Error message displayed when fields are empty-->
+	<div id="error"></div>
+        
+     	<div class="row form-group form-inline" id="rowDiv">
+		<input type="text" name="place" id="place" class="form-control" placeholder="Town/City">
+        	<input type="text" name="country" id="country" class="form-control" placeholder="Country">
+            <br>
+            <br>
+		<button id="submitCoords">Get Current UVI</button>
+        <button id="submitUVF">7-Day Forecast UVI</button>
+		</div>   
+		
+			<br>
+			<br>
+      
+        <div id="show2"></div>
+        
+        <div id="show"></div>
+        
+        <div id="show3"></div>
+        
+        <div id="show4"></div>
+        
+        <canvas id="myChart"></canvas>
+    
+			</div>    		
+        </div>
+		
+		<script src="scripts/uv.js"></script>
+    </body>
+</html>
+
+
